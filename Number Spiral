@@ -1,0 +1,40 @@
+
+#include<bits/stdc++.h>
+
+using namespace std;
+int main(){
+ios_base::sync_with_stdio(false);  
+cin.tie(NULL);   
+      long long r,c;
+   int t;
+
+   cin >> t;
+   while(t--)
+   {
+   long long ans = 0;
+   cin >> r >> c;
+   if(r>=c)
+   {
+   		if(r%2==0)
+   		{
+   			ans  = r * r - (c-1);
+   		    		}
+   		else{
+   			ans = (r-1)*(r-1)  + c ;
+   	    		}
+   }
+   else if(c>r)
+   {
+   		if(c%2==0)
+   		{
+   			ans = (c-1)*(c-1) + r;
+   			    		}
+   		else{
+   			ans = c * c  - ( r - 1);
+   		}
+   }
+   cout << ans << endl;
+}
+}
+
+ 

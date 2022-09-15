@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+ 
+
+int main(){
+
+   long  n,ans;
+
+   cin >> n;
+
+   ans = 0;
+
+   vector<long> input;
+
+   for(int i=0;i<n;i++)
+   {
+   	int temp;
+   	cin >> temp;
+   	input.push_back(temp);
+   }
+
+   for(int i=1;i<input.size();i++)
+   {
+   	if(input[i]<input[i-1])
+   	{
+   		ans += abs(input[i] - input[i-1]);
+   		input[i] = input[i-1];
+   	}
+   }
+
+   cout << ans << endl;
+
+}
+
+ 

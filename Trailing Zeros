@@ -1,0 +1,29 @@
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+ 
+
+int main(){
+
+ios_base::sync_with_stdio(false);  
+cin.tie(NULL); // flushes cout  
+    
+    long n;
+    cin >> n;
+    int i = 1;
+    long sum = 0;
+
+    while(n>0)
+    {
+    long temp = floor(n/pow(5,i++));
+    sum+=temp;
+    if(temp<=0) break;
+    }
+    cout << sum << endl;
+
+}
+
+ 

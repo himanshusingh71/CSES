@@ -1,0 +1,70 @@
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+ 
+
+int main(){
+
+ios_base::sync_with_stdio(false);  
+cin.tie(NULL); // flushes cout  
+    
+  
+   string s;
+
+   cin >> s;
+
+   map<char,int> mp;
+   map<char,string> string_map;
+
+   for(char &x: s)
+   {
+   	mp[x]++;
+
+   	if(mp[x]%2==0)
+   		string_map[x] += x;
+
+   }
+
+   int odd = 0;
+   	char odd_char = '!';
+   for(auto it:mp)
+   {
+   	if((it.second)&1){
+   	 
+   	 odd_char = it.first;
+   		odd++;
+   	}
+   }
+
+   string ans = "";
+
+   vector<char> myvec;
+   vector<string> other;
+   if(odd<=1)
+   {
+   		for(auto it:mp)
+   		{
+   			myvec.push_back(it.first);
+   			string temp  = "";
+   			 ans = ans + string_map[it.first];
+
+   			other.push_back(string_map[it.first]);
+   		}
+   		if(odd_char!='!')
+   			ans = ans + odd_char;
+
+   		for(int j=other.size()-1;j>=0;j--)
+   		{
+   			 ans = ans + other[j];
+   		}
+   		cout << ans << endl;
+   }
+   else{
+   	cout << "NO SOLUTION\n";
+   }
+
+
+}
+

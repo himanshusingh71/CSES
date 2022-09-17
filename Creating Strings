@@ -1,0 +1,58 @@
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+ set<string> myset;
+void recur(string temp,string s,set<int> cache)
+{
+
+	if(temp.size()==s.size() )
+	{
+		//cout << temp << endl;
+		 myset.insert(temp);
+		return ;
+	}
+	 
+
+	for(int i=0;i<s.size();i++){
+
+		if(cache.find(i)!=cache.end())
+			continue;
+
+		cache.insert(i);
+
+		temp = temp + s[i];
+
+		recur(temp,s,cache);
+
+
+		temp.pop_back();
+		cache.erase(i);
+ 	
+
+	}
+
+
+}
+int main(){
+
+ios_base::sync_with_stdio(false);  
+cin.tie(NULL); // flushes cout  
+    
+  string s;
+
+  cin >> s;
+sort(s.begin(),s.end());
+  string temp="";
+
+  recur(temp,s,set<int>());
+
+  cout << myset.size() << endl;
+
+  for(auto it: myset)
+  {
+  	cout << it << endl;
+  }
+}	
+

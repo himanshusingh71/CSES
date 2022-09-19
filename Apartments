@@ -1,0 +1,63 @@
+
+#include<bits/stdc++.h>
+
+using namespace std;
+ 
+ 
+ 
+int main(){
+
+ios_base::sync_with_stdio(false);  
+cin.tie(NULL);  
+	
+	long n,m,k;
+
+	vector<long> desired,provided;
+	cin >> n >> m >> k;
+
+	for(long i=0;i<n;i++)
+	{
+		long temp;
+		cin >> temp;
+		desired.push_back(temp);
+	}
+
+	for(long i=0;i<m;i++)
+	{
+		long temp;
+		cin >> temp;
+		provided.push_back(temp);
+	}
+
+	long count = 0;
+
+
+	sort(desired.begin(),desired.end());
+	sort(provided.begin(),provided.end());
+	int i=0,j=0;
+
+ 
+	while(i<desired.size() and j < provided.size())
+	{
+		if((desired[i] - k <= provided[j]) and (desired[i]+k >= provided[j]))
+		{
+			 
+			count++;
+			i++;
+			j++;
+		}
+		else if(provided[j] < desired[i] + k)
+		{
+				j++;
+		}
+		else if(provided[j]>desired[i]+k)
+		{
+			i++;
+		}
+	}
+
+
+	cout << count << endl;
+
+  }
+
